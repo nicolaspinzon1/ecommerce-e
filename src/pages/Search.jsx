@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProductItem from "../components/ProductItem";
-import ProductDetails from "../components/ProductDetails"; // Importar el componente ProductDetails
+import ProductDetails from "../components/ProductDetails"; 
 import { Dialog } from "@headlessui/react";
 
 export default function Search() {
@@ -9,20 +9,20 @@ export default function Search() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(2); // Cambia el número según la cantidad de productos a ingresar
+  const [productsPerPage] = useState(8); 
 
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedProduct, setSelectedProduct] = useState(null); // Estado para el producto seleccionado
+  const [selectedProduct, setSelectedProduct] = useState(null); 
   const [showProductDetails, setShowProductDetails] = useState(false); // Estado para mostrar el detalle del producto
-  const [cart, setCart] = useState([]); // Definir el estado del carrito
+  const [cart, setCart] = useState([]); 
 
   // para agregar un producto al carrito
   const addToCart = (product) => {
     console.log("Agregando al carrito:", product);
 
     if (product) {
-      // Actualiza el estado del carrito
+      
       setCart([...cart, product]);
 
       // Guarda el estado del carrito en el localStorage
@@ -37,7 +37,7 @@ export default function Search() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://x762022t-8000.use2.devtunnels.ms/products/"
+          "https://render-ecommerce-ki8y.onrender.com/products/"
         );
         if (!response.ok) {
           throw new Error("Error al obtener los productos");
@@ -59,13 +59,13 @@ export default function Search() {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://x762022t-8000.use2.devtunnels.ms/categories/all/"
+          "https://render-ecommerce-ki8y.onrender.com/categories/all/"
         );
         if (!response.ok) {
           throw new Error("Error al obtener las categorías");
         }
         const data = await response.json();
-        console.log(data); // Verifica aquí que las categorías se están cargando correctamente
+        console.log(data); 
         setCategories(data);
       } catch (error) {
         console.error("Error al obtener las categorías:", error);
@@ -86,8 +86,8 @@ export default function Search() {
   };
 
   const handleProductClick = (product) => {
-    setSelectedProduct(product); // Establecer el producto seleccionado al hacer clic
-    setShowProductDetails(true); // Mostrar el detalle del producto
+    setSelectedProduct(product); 
+    setShowProductDetails(true); 
   };
 
   const handleCloseProductDetails = () => {

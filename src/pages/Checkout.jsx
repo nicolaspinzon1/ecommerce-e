@@ -9,7 +9,7 @@ const currentSession = getSession();
 const Checkout = ({ setToggle }) => {
   const [products, setProducts] = useState([]);
   const { state } = useContext(AppContext);
-  const currentSession = getSession(); // Aquí obtenemos el token de sesión
+  const currentSession = getSession();
 
   const [INIT, setINIT] = useState("");
 
@@ -17,7 +17,7 @@ const Checkout = ({ setToggle }) => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://x762022t-8000.use2.devtunnels.ms/cart/checkout/",
+          "https://render-ecommerce-ki8y.onrender.com/cart/checkout/",
           {
             method: "GET",
             headers: {
@@ -45,14 +45,14 @@ const Checkout = ({ setToggle }) => {
       console.log("Intentando realizar el pago...");
 	 
       const response = await fetch(
-        "https://x762022t-8000.use2.devtunnels.ms/payments/",
+        "https://render-ecommerce-ki8y.onrender.com/payments/",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Token ${currentSession}`,
           },
-          body: JSON.stringify({}) // Puedes enviar datos adicionales si es necesario
+          body: JSON.stringify({}) 
         }
 		
       );
@@ -66,14 +66,14 @@ const Checkout = ({ setToggle }) => {
       if (response.ok) {
         window.location.href = responseData.INIT_POINT;
         console.log("Pago exitoso:", responseData);
-        // Aquí puedes redirigir al usuario al URL de inicio de pago o manejar el resultado de otra manera
+       
       } else {
         console.error("Pago fallido:", responseData.statusText);
-        // Aquí puedes mostrar un mensaje de error al usuario
+        
       }
     } catch (error) {
       console.error("Error en el pago", error);
-      // Aquí puedes manejar errores de red u otros errores
+      
     }
   }; 
 
@@ -90,16 +90,16 @@ const Checkout = ({ setToggle }) => {
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
         <form   onSubmit={handleSubmit} className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
           <div>
-            <h2 className="text-xl font-medium text-gray-900">
+             <h2 className="text-xl font-medium text-gray-900">
               Formulario de envió
-            </h2>
+            </h2> 
 
             <div className="mt-5 border-0 border-gray-200 pt-10 ">
               {/* mt-4 rounded-lg border border-gray-200 bg-white shadow-sm */}
 
               <div className="  rounded-lg border-2 border-gray-200 bg-white shadow-sm    ">
                 <div className="py-4 px-4  grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-                  <div>
+                   <div>
                     <label
                       htmlFor="first-name"
                       className="block text-base font-medium text-gray-700"
@@ -116,9 +116,9 @@ const Checkout = ({ setToggle }) => {
                         className="block w-full rounded-md border-2 py-1.5 px-2  text-gray-900 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
+                  </div> 
 
-                  <div>
+                   <div>
                     <label
                       htmlFor="last-name"
                       className="block text-base font-medium text-gray-700"
@@ -135,9 +135,9 @@ const Checkout = ({ setToggle }) => {
                         className="block w-full border-2 rounded-md py-1.5 px-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
+                  </div> 
 
-                  <div>
+                   <div>
                     <label
                       htmlFor="city"
                       className="block text-base font-medium text-gray-700"
@@ -154,9 +154,9 @@ const Checkout = ({ setToggle }) => {
                         className="block w-full border-2 rounded-md  py-1.5 px-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
+                  </div> 
 
-                  <div>
+                   <div>
                     <label
                       htmlFor="phone"
                       className="block text-base font-medium text-gray-700"
@@ -174,8 +174,8 @@ const Checkout = ({ setToggle }) => {
 					  border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
-                  <div>
+                  </div> 
+                   <div>
                     <label
                       htmlFor="address"
                       className="block text-base font-medium text-gray-700"
@@ -192,9 +192,9 @@ const Checkout = ({ setToggle }) => {
                         className="block w-full rounded-md border-2 py-1.5 px-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
+                  </div> 
 
-                  <div>
+                   <div>
                     <label
                       htmlFor="address details"
                       className="block text-base font-medium text-gray-700"
@@ -211,10 +211,10 @@ const Checkout = ({ setToggle }) => {
                         className="block w-full border-2 rounded-md py-1.5 px-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
+                  </div> 
                 </div>
                 <div className="justify-between  flex gap-x-4 mx-4 py-3 ">
-                  <div>
+                   <div>
                     <label
                       htmlFor="city"
                       className="block text-base font-medium text-gray-700"
@@ -231,9 +231,9 @@ const Checkout = ({ setToggle }) => {
                         className="block w-full border-2 rounded-md  py-1.5 px-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
+                  </div> 
 
-                  <div>
+                   <div>
                     <label
                       htmlFor="department"
                       className="block text-base font-medium text-gray-700"
@@ -250,8 +250,8 @@ const Checkout = ({ setToggle }) => {
 					  border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
-                  <div>
+                  </div> 
+                   <div>
                     <label
                       htmlFor="country"
                       className="block text-base font-medium text-gray-700"
@@ -269,7 +269,7 @@ const Checkout = ({ setToggle }) => {
 					  border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
+                  </div> 
                 </div>
               </div>
             </div>
@@ -423,7 +423,7 @@ const Checkout = ({ setToggle }) => {
 
                       <div className="flex flex-1 items-end justify-between pt-2">
                         <p className="mt-1 text-sm font-medium text-gray-900">
-                          {product.price}
+                          {product.price*1000}
                         </p>
 
                         <div className="ml-4">
@@ -446,7 +446,7 @@ const Checkout = ({ setToggle }) => {
                     $
                     {products.reduce(
                       (acc, product) =>
-                        acc + parseFloat(product.price) * product.quantity,
+                        acc + 1000*(product.price) * product.quantity,
                       0
                     )}
                   </dd>

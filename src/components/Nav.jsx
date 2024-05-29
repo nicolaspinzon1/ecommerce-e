@@ -66,7 +66,7 @@ export default function Nav({ user }) {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "https://x762022t-8000.use2.devtunnels.ms/accounts/logout/",
+        "https://render-ecommerce-ki8y.onrender.com/accounts/logout/",
         {},
         {
           headers: {
@@ -144,31 +144,17 @@ export default function Nav({ user }) {
                 </div>
 
                 {/* Links */}
-                <Tab.Group as="div" className="mt-2">
+                <Tab.Group as="div" className="">
                   <div className="border-b border-gray-200">
                     <Tab.List className="-mb-px flex space-x-8 px-4">
-                      {navigation.categories.map((category) => (
-                        <Tab
-                          key={category.name}
-                          className={({ selected }) =>
-                            classNames(
-                              selected
-                                ? "border-indigo-600 text-indigo-600"
-                                : "border-transparent text-gray-900",
-                              "flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium"
-                            )
-                          }
-                        >
-                          {category.name}
-                        </Tab>
-                      ))}
+                    
                     </Tab.List>
                   </div>
                   <Tab.Panels as={Fragment}>
                     {navigation.categories.map((category) => (
                       <Tab.Panel
                         key={category.name}
-                        className="space-y-10 px-4 pb-8 pt-10"
+                        className=""
                       >
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map((item) => (
@@ -186,79 +172,56 @@ export default function Nav({ user }) {
                             </div>
                           ))}
                         </div>
-                        {category.sections.map((section) => (
-                          <div key={section.name}>
-                            <p
-                              id={`${category.id}-${section.id}-heading-mobile`}
-                              className="font-medium text-gray-900"
-                            >
-                              {section.name}
-                            </p>
-                            <ul
-                              role="list"
-                              aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                              className="mt-6 flex flex-col space-y-6"
-                            >
-                              {section.items.map((item) => (
-                                <li key={item.name} className="flow-root">
-                                  <a
-                                    href={item.href}
-                                    className="-m-2 block p-2 text-gray-500"
-                                  >
-                                    {item.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
                       </Tab.Panel>
                     ))}
                   </Tab.Panels>
                 </Tab.Group>
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  {navigation.pages.map((page) => (
-                    <div key={page.name} className="flow-root">
-                      <a
-                        href="#"
-                        className="-m-2 block p-2 font-medium text-gray-900"
-                      >
-                        {page.name}
-                      </a>
-                    </div>
-                  ))}
+                  <div className="flow-root">
+                    <Link
+                      to="/Products"
+                      className="-m-2 block p-2 font-medium text-gray-900"
+                    >
+                      Productos
+                    </Link>
+                  </div>
+
+                  <Link
+                    to="/AboutUs"
+                    className="-m-2 block p-2 font-medium text-gray-900"
+                  >
+                    Sobre nosotros
+                  </Link>
                 </div>
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  {isAuth ? (
-                    <div className="flow-root">
-                      <a
-                        href="/login"
-                        className="-m-2 block p-2 font-medium text-gray-900"
+                  {!isAuth ? (
+                    <>
+                      <Link
+                        to="/login"
+                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
                       >
                         Iniciar sesión
-                      </a>
-                    </div>
-                  ) : (
-                    <div className="flow-root">
-                      <a
-                        href="/logout"
-                        className="-m-2 block p-2 font-medium text-gray-900"
+                      </Link>{" "}
+                      <Link
+                        to="/signup"
+                        className=" -m-2 block p-2 font-medium text-gray-900"
                       >
-                        Cerrar sesion
-                      </a>
-                    </div>
+                        Crear cuenta
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      <Link
+                        to="/"
+                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                        onClick={handleLogout}
+                      >
+                        <span>Cerrar sesión</span>
+                      </Link>
+                    </>
                   )}
-
-                  <div className="flow-root">
-                    <a
-                      href="/signup"
-                      className="-m-2 block p-2 font-medium text-gray-900"
-                    >
-                      Crear cuenta
-                    </a>
-                  </div>
                 </div>
 
                 <div className="border-t border-gray-200 px-4 py-6">
@@ -272,7 +235,6 @@ export default function Nav({ user }) {
                   <span className="ml-3 block text-base font-medium text-gray-900">
                     COL
                   </span>
-                  <span className="sr-only">, cambiar moneda</span>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -316,7 +278,6 @@ export default function Nav({ user }) {
                       Productos
                     </Link>
                   </div>
-                  {/* WEB */}
 
                   <Link
                     to="/AboutUs"

@@ -63,3 +63,16 @@
     height: 100%;
     display: block;
   }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-300px * 5 - 0.5rem * 10));
+    }
+  }
+  
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }

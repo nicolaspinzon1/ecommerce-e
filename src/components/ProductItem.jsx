@@ -27,7 +27,7 @@ const ProductItem = ({ product, onClick }) => {
         <div className="mx-auto max-w-2xl px-4 py-15 sm:px-3 sm:py-21  lg:px-2">
           <div className="">
             <div className="group relative">
-              <div className="aspect-h-1 border-2 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-78">
+              <div className="bg-white overflow-hidden rounded-md border-2 lg:aspect-none group-hover:opacity-75 lg:h-[290px] h-70 w-70 aspect-w-2 aspect-h-1 ">
                 <img
                   src={product.images}
                   alt={product.imageAlt}
@@ -40,14 +40,15 @@ const ProductItem = ({ product, onClick }) => {
                   <p className="text-sm font-medium text-gray-900" >{product.Product_name}</p>
                   <p className="text-sm font-medium text-gray-900">${product.price}</p>
                 </div>
-                <figure onClick={() => handleClick(product)}>
+                
+                <figure className="h-20 w-20 ml-6" onClick={() => handleClick(product)}>
                   {ProductAdded() ? (
                     <img src={addToBCartImage} alt="Added to Cart" />
                   ) : (
-                    <img src={addToCartImage} alt="Add to Cart" />
+                    <img  src={addToCartImage} alt="Add to Cart" />
                   )}
                 </figure>
-                
+               
               </div>
             </div>
           </div>

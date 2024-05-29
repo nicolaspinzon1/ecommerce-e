@@ -38,7 +38,7 @@ export default function CreateAccount() {
     }
 
     try {
-      const response = await fetch("https://x762022t-8000.use2.devtunnels.ms/accounts/register/", {
+      const response = await fetch("https://render-ecommerce-ki8y.onrender.com/accounts/register/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -182,10 +182,16 @@ export default function CreateAccount() {
               {error && <p className="text-red-500">{error}</p>}
               {successMessage && <p className="text-green-500">{successMessage}</p>}
               <button
+             
                 type="submit"
                 className="flex mt-6 w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Registrar
+              
+               Registrar 
+                        
+                      
+                
+                
               </button>
 			  
             </div>

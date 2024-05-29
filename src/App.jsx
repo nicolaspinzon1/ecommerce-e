@@ -8,7 +8,7 @@ import Products from "./pages/Search";
 import AppContext from "./context/AppContext";
 import useInitialState from "../src/hooks/useInitialState";
 import Checkout from "./pages/Checkout";
-import Orders from "./pages/Orders";
+// import Orders from "./pages/Orders";
 import AboutUs from "./pages/AboutUs";
 
 
@@ -53,9 +53,9 @@ const App = () => {
             <Checkout />
             
            } />
-           <Route path="/orders" element={<Layout> 
+           {/* <Route path="/orders" element={<Layout> 
             <Orders />
-           </Layout>} /> 
+           </Layout>} />  */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<CreateAccount />} />
         </Routes>

@@ -30,14 +30,14 @@ const OrderItem = ({
 
   const updateLocalStorage = (newCounter) => {
     const currentState = state.cart;
-    const item = currentState.find((item) => item.id === product.id);
+    const itemIndex = currentState.findIndex((item) => item.id === product.id);
 
-    if (item) {
-      item.quantity = newCounter;
+    if (itemIndex !== -1) {
+      currentState[itemIndex].quantity = newCounter;
       removeFromCart(product.id);
       addToCart(product, newCounter);
       if (updateTotalPrice) {
-        updateTotalPrice();
+        updateTotalPrice(); // Llama a updateTotalPrice después de actualizar la cantidad
       }
     }
   };

@@ -16,7 +16,7 @@ export default function Login() {
     try {
       console.log(searchParams.get("checkout") == '1')
       const response = await fetch(
-        "https://x762022t-8000.use2.devtunnels.ms/accounts/login/",
+        "https://render-ecommerce-ki8y.onrender.com/accounts/login/",
         {
           method: "POST",
           headers: {

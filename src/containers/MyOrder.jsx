@@ -18,11 +18,11 @@ const MyOrder = ({ setToggleOrders }) => {
 
   const sumTotal = () => {
     const reducer = (accumulator, currentValue) =>
-      accumulator + parseFloat(currentValue.price) * currentValue.quantity;
+      accumulator + parseFloat(currentValue.price) * currentValue.quantity*1000;
     const sum = state.cart.reduce(reducer, 0);
-    return sum.toFixed(2);
+    const totalFormatted = sum.toLocaleString(); 
+    return totalFormatted;
   };
-
   const updateTotalPrice = () => {
     const total = sumTotal();
     setTotalPrice(total);
@@ -48,7 +48,7 @@ const MyOrder = ({ setToggleOrders }) => {
       console.log("Datos del carrito:", cartData);
       console.log(currentSession);
       if (cartData && cartData.length > 0) {
-        fetch("https://x762022t-8000.use2.devtunnels.ms/cart/add_cart/", {
+        fetch("https://render-ecommerce-ki8y.onrender.com/cart/add_cart/", {
           method: "POST",
           mode: "cors",
           headers: {
@@ -135,6 +135,7 @@ const MyOrder = ({ setToggleOrders }) => {
                                     product={product}
                                     handleRemove={handleRemove}
                                     updateTotalPrice={updateTotalPrice}
+                                    
                                     checkoutCompleted={false}
                                   />
                                 </div>

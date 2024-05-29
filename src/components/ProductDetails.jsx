@@ -140,7 +140,7 @@ const ProductDetails = ({ product, onClose }) => {
                 <div className="-mt-24 mb-14 px-8 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
                   <section aria-labelledby="options-heading">
                     <h2 id="options-heading" className="sr-only">
-                      Product options
+                      
                     </h2>
 
                     <div className="mt-10">
