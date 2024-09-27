@@ -90,9 +90,9 @@ const Checkout = ({ setToggle }) => {
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
         <form   onSubmit={handleSubmit} className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
           <div>
-             <h2 className="text-xl font-medium text-gray-900">
+             {/* <h2 className="text-xl font-medium text-gray-900">
               Formulario de envió
-            </h2> 
+            </h2>  */}
 
             <div className="mt-5 border-0 border-gray-200 pt-10 ">
               {/* mt-4 rounded-lg border border-gray-200 bg-white shadow-sm */}
@@ -240,7 +240,7 @@ const Checkout = ({ setToggle }) => {
                     >
                       Departamento
                     </label>
-                    <div className="mt-1">
+                    {/* <div className="mt-1">
                       <input
                         type="text"
                         name="department"
@@ -249,8 +249,8 @@ const Checkout = ({ setToggle }) => {
                         className="block w-full  border-2 rounded-md  py-1.5 px-2
 					  border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
-                    </div>
-                  </div> 
+                    </div> */}
+                  {/* </div> 
                    <div>
                     <label
                       htmlFor="country"
@@ -269,8 +269,8 @@ const Checkout = ({ setToggle }) => {
 					  border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div> 
-                </div>
+                  </div>  */}
+                {/* </div> */}
               </div>
             </div>
 
